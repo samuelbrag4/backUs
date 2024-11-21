@@ -15,12 +15,11 @@ class Jogo { // Criação da classe - Gabi
 
 //Método para verficação de existe um jogador - Fernanda
 verificarNomeExistente(nome); { // Criação do método - Fernanda
-    return this.jogadores.some(jogador => jogador.nome === nome); // Verifica se o nome do jogador já está cadastrado - Fernanda
 
-    if (jogador.nome === nome) { // Condição para verificar se o jogador já está cadastrado - Fernanda
+    if (jogador.nome !== nome) { // Condição para verificar se o jogador já está cadastrado - Fernanda
         console.log("Jogador já cadastrado"); // Mensagem de jogador já cadastrado - Fernanda
-    } else { // Condição para verificar se o jogador não está cadastrado - Fernanda
-        console.log("Jogador não cadastrado"); // Mensagem de jogador não cadastrado - Fernanda
+
+    return this.jogadores.some(jogador => jogador.nome === nome); // Verifica se o nome do jogador já está cadastrado - Fernanda
     }
 
     //Método para verficação de existe um apelido - Souza
