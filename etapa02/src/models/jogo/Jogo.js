@@ -11,7 +11,17 @@ class Jogo { // Criação da classe - Gabi
         this.grupos = null; // Quantidade total de grupos (vazio) - Alexandra
         this.chat = new Chat(); // Gerencia o histórico de mensagens entre os jogadores - Jéssica 
     }
-}
+};
+
+//Método para verficação de existe um jogador - Fernanda
+verificarNomeExistente(nome); { // Criação do método - Fernanda
+    return this.jogadores.some(jogador => jogador.nome === nome); // Verifica se o nome do jogador já está cadastrado - Fernanda
+
+    if (jogador.nome === nome) { // Condição para verificar se o jogador já está cadastrado - Fernanda
+        console.log("Jogador já cadastrado"); // Mensagem de jogador já cadastrado - Fernanda
+    } else { // Condição para verificar se o jogador não está cadastrado - Fernanda
+        console.log("Jogador não cadastrado"); // Mensagem de jogador não cadastrado - Fernanda
+    }
+};
 
 export default Jogo; // Jéssica
-
