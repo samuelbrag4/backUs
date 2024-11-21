@@ -1,3 +1,6 @@
+import Aluno from '../aluno/Aluno'; // Importa a classe Aluno - Samuel
+import Chat from '../chat/Chat'; // Importa a classe Chat - Samuel
+
 // Definição da classe Jogo  
 class Jogo { // Criação da classe - Gabi
 
@@ -11,33 +14,31 @@ class Jogo { // Criação da classe - Gabi
         this.grupos = null; // Quantidade total de grupos (vazio) - Alexandra
         this.chat = new Chat(); // Gerencia o histórico de mensagens entre os jogadores - Jéssica 
     }
-};
 
-//Método para verficação de existe um jogador - Fernanda
-verificarNomeExistente(nome); { // Criação do método - Fernanda
-
-    if (jogador.nome !== nome) { // Condição para verificar se o jogador já está cadastrado - Fernanda
-        console.log("Jogador já cadastrado"); // Mensagem de jogador já cadastrado - Fernanda
-
-    return this.jogadores.some(jogador => jogador.nome === nome); // Verifica se o nome do jogador já está cadastrado - Fernanda
+    //Método para verficação de existe um jogador - Fernanda
+    verificarNomeExistente(nome) { // Criação do método - Fernanda
+        if (this.jogadores.some(jogador => jogador.nome === nome)) { // Verifica se o nome do jogador já está cadastrado - Fernanda
+            console.log("Jogador já cadastrado"); // Mensagem de jogador já cadastrado - Fernanda
+            return true;
+        }
+        return false;
     }
 
     //Método para verficação de existe um apelido - Souza
-    verificarApelidoExistente(apelido); { // Criação do método - Souza
-
-        if (jogador.apelido !== apelido) { // Condição para verificar se o apelido do jogador já está cadastrado - Souza
+    verificarApelidoExistente(apelido) { // Criação do método - Souza
+        if (this.jogadores.some(jogador => jogador.apelido === apelido)) { // Verifica se o apelido do jogador já está cadastrado - Souza
             console.log("Apelido já cadastrado"); // Mensagem de apelido já cadastrado - Souza
+            return true;
         }
-
-        return this.jogadores.some(jogador => jogador.apelido === apelido); // Verifica se o apelido do jogador já está cadastrado - Souza
+        return false;
     }
-};
 
-//Método para adicionar um aluno - Nathalia
-adicionarAluno(aluno) {
-    const novoAluno = new Aluno(aluno); // Cria um novo aluno - Nathalia
-    this.alunos.push(novoAluno); // Adiciona o aluno na lista de alunos - Nathalia
-    return novoAluno; // Retorna o novo aluno - Nathalia
+    //Método para adicionar um aluno - Nathalia
+    adicionarAluno(aluno) { // Criação do método - Nathalia
+        const novoAluno = new Aluno(aluno); // Cria um novo aluno - Nathalia
+        this.alunos.push(novoAluno); // Adiciona o aluno na lista de alunos - Nathalia
+        return novoAluno; // Retorna o novo aluno - Nathalia
+    }
 }
 
 export default Jogo; // Jéssica
