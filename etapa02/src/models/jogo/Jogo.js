@@ -34,4 +34,11 @@ verificarNomeExistente(nome); { // Criação do método - Fernanda
     }
 };
 
+//Método para adicionar um aluno - Nathalia
+adicionarAluno(aluno) {
+    const novoAluno = new Aluno(aluno); // Cria um novo aluno - Nathalia
+    this.alunos.push(novoAluno); // Adiciona o aluno na lista de alunos - Nathalia
+    return novoAluno; // Retorna o novo aluno - Nathalia
+}
+
 export default Jogo; // Jéssica
