@@ -1,5 +1,5 @@
-import Aluno from '../aluno/Aluno'; // Importa a classe Aluno - Samuel
-import Chat from '../chat/Chat'; // Importa a classe Chat - Samuel
+// import Aluno from '../aluno/Aluno'; // Importa a classe Aluno - Samuel
+// import Chat from '../chat/Chat'; // Importa a classe Chat - Samuel
 
 // Definição da classe Jogo  
 class Jogo { // Criação da classe - Gabi
@@ -12,7 +12,7 @@ class Jogo { // Criação da classe - Gabi
         this.alunos = []; // Lista de alunos cadastrados - Gabi
         this.jogadores = []; // Lista de jogadores após o início do jogo - Alexandra
         this.grupos = null; // Quantidade total de grupos (vazio) - Alexandra
-        this.chat = new Chat(); // Gerencia o histórico de mensagens entre os jogadores - Jéssica 
+        // this.chat = new Chat(); // Gerencia o histórico de mensagens entre os jogadores - Jéssica 
     }
 
     //Método para verficação de existe um jogador - Fernanda
