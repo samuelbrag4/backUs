@@ -35,6 +35,15 @@ class Jogo {
             throw new Error (`Aluno com nome ${nome} já cadastrado. Escolha outro nome.`) 
         }
     }
+//Fernanda Alves
+    verificarApelidoExistente(apelido) {
+        const apelidoExistente = this.alunos.some(
+            (a) => String(a.apelido) === String(apelido)
+        );
+        if (apelidoExistente) {
+            throw new Error (`Aluno com apelido ${apelido} já existe. Escolha outro.`)
+        }
+    }
 }
 
 export default Jogo;
