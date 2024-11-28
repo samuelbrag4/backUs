@@ -18,19 +18,6 @@ class Jogo {
 
     verificarNomeExistente(nome) {
         if (/\d/.test(nome)) {
-          throw new Error("Nome não pode conter números. Escolha outro.");
-        }
-    
-        const nomeExistente = this.alunos.some(
-          (a) => a.nome.toLowerCase() === nome.toLowerCase()
-        );
-        if (nomeExistente) {
-          throw new Error(`Aluno com nome ${nome} já existe. Escolha outro.`);
-        }
-      }
-
-    verificarNomeExistente(nome) {
-        if (/\d/.test(nome)) {
             // A expressão "/\d/" é utilizada para encontrar dígitos numéricos dentro de uma string.
             throw new Error("Nome não pode conter números")
             // O "throw" é utilizado para lançar uma exceção.
@@ -49,13 +36,23 @@ class Jogo {
         }
     }
 
-    // Método para adicionar um novo aluno à lista de alunos
+    //Fernanda Alves
+    verificarApelidoExistente(apelido) {
+        const apelidoExistente = this.alunos.some(
+            (a) => String(a.apelido) === String(apelido)
+        );
+        if (apelidoExistente) {
+            throw new Error(`Aluno com apelido ${apelido} já existe. Escolha outro.`)
+        }
+    }
+
+    // Método para adicionar um novo aluno à lista de alunos - Sara
     adicionarAluno(aluno) {
         // Adiciona o aluno passado como argumento ao array ```javascript
         // Adiciona o aluno passado como argumento ao array de alunos
         this.alunos.push(aluno);
     }
-    // Método para mostrar os alunos cadastrados, com opções de filtragem
+    // Método para mostrar os alunos cadastrados, com opções de filtragem - Sara
     mostrarAlunos(grupo = null, nome = null) {
         // Verifica se a lista de alunos está vazia
         if (this.alunos.length === 0) {
@@ -113,71 +110,12 @@ class Jogo {
         console.table(tabelaConsole);
         // Retorna o resultado final com os alunos agrupados
         return resultadoFinal;
-    }// Método para adicionar um novo aluno à lista de alunos
-    adicionarAluno(aluno) {
-        // Adiciona o aluno passado como argumento ao array ```javascript
-        // Adiciona o aluno passado como argumento ao array de alunos
-        this.alunos.push(aluno);
     }
-    // Método para mostrar os alunos cadastrados, com opções de filtragem
-    mostrarAlunos(grupo = null, nome = null) {
-        // Verifica se a lista de alunos está vazia
-        if (this.alunos.length === 0) {
-            throw new Error("Não há alunos cadastrados."); // Lança um erro se não houver alunos
-        }
-        // Filtra os alunos com base nos parâmetros de grupo e nome
-        const alunosFiltrados = this.alunos.filter(
-            (a) =>
-                (!grupo || a.grupo == grupo) && // Verifica se o grupo é correspondente ou se não foi especificado
-                (!nome || a.nome.toLowerCase() === nome.toLowerCase()) // Verifica se o nome é correspondente ou se não foi especificado
-        );
-        // Verifica se algum aluno foi encontrado após a filtragem
-        if (alunosFiltrados.length === 0) {
-            throw new Error("Nenhum aluno encontrado para os filtros especificados."); // Lança um erro se não houver alunos filtrados
-        }
-        // Agrupa os alunos filtrados por grupo
-        const alunosAgrupados = alunosFiltrados.reduce((acc, aluno) => {
-            const grupoKey = `Grupo ${aluno.grupo}`; // Cria uma chave para o grupo
-            if (!acc[grupoKey]) acc[grupoKey] = []; // Inicializa o array para o grupo se não existir
-            // Adiciona as informações do aluno ao grupo correspondente
-            acc[grupoKey].push({
-                Nome: aluno.nome,
-                Apelido: aluno.apelido,
-                EstaVivo: aluno.estaVivo,
-                LocalAtual: aluno.localAtual,
-            });
-            return acc; // Retorna o acumulador atualizado
-        }, {});
-        // Cria um resultado final que contém a contagem de alunos por grupo
-        const resultadoFinal = Object.entries(alunosAgrupados)
-            .sort(([keyA], [keyB]) => keyA.localeCompare(keyB)) // Ordena os grupos alfabeticamente
-            .reduce((acc, [grupo, alunos]) => {
-                const quantidade = alunos.length; // Conta quantos alunos estão no grupo
-                // Adiciona a informação do grupo e a quantidade de alunos ao resultado
-                acc[`${grupo} com ${quantidade} aluno${quantidade > 1 ? "s" : ""}`] = alunos;
-                return acc; // Retorna o acumulador atualizado
-            }, {});
-        // Cria uma tabela para exibir os alunos filtrados no console
-        const tabelaConsole = alunosFiltrados
-            .sort((a, b) => {
-                if (a.grupo === b.grupo) {
-                    return a.nome.localeCompare(b.nome); // Ordena por nome se os grupos forem iguais
-                }
-                return a.grupo - b.grupo; // Ordena por grupo
-            })
-            .map((aluno) => ({
-                Grupo: aluno.grupo,
-                Nome: aluno.nome,
-                Apelido: aluno.apelido,
-                Senha: aluno.pegarSenha(),
-                EstaVivo: aluno.estaVivo,
-                LocalAtual: aluno.localAtual,
-            }));
-        // Exibe a tabela no console
-        console.table(tabelaConsole);
-        // Retorna o resultado final com os alunos agrupados
-        return resultadoFinal;
-    }
+
+    // Método para remover aluno - Jéssica
+
+    // Método para mostrar jogadores - Alexandra
+
 }
 
 export default Jogo;
