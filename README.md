@@ -1,7 +1,7 @@
 # 🚀 Projeto BackUs Grupo 04 🚀
 
 ## Introdução 📃
-Bem-vindo ao repositório do projeto BackUs do Grupo 04. Este projeto tem como objetivo [descrever o objetivo do projeto]. Aqui você encontrará todas as informações necessárias para entender, contribuir e utilizar nosso projeto.
+Bem-vindo ao repositório do projeto BackUs do Grupo 04. Este projeto tem como objetivo praticar a criação de classes e rotas. Para aprendermos, utilizamos o clássico jogo "Among Us". Aqui você encontrará todas as informações necessárias para entender, contribuir e utilizar nosso projeto.
 
 ## Membros ✌
 - Membro 1: Samuel dos Santos Braga
