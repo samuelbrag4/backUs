@@ -112,10 +112,46 @@ class Jogo {
         return resultadoFinal;
     }
 
-    // Método para remover aluno - Jéssica
+    // Rota para remover aluno - Jéssica
 
-    // Método para mostrar jogadores - Alexandra
+    // Rota para mostrar jogadores - Alexandra
 
+    // Rota para iniciar jogo - Samuel
+    iniciarJogo() {
+        const grupoEscolhido = Math.floor(Math.random() * this.grupos) + 1;
+    
+        this.alunos.forEach((aluno) => {
+          let jogador;
+    
+          if (aluno.grupo === grupoEscolhido) {
+            jogador = new Sabotador(aluno);
+          } else {
+            jogador = new Dev(aluno);
+          }
+    
+          this.jogadores.push(jogador);
+        });
+    
+        this.mostrarJogadores(this.jogadores);
+      }
+
+    // Rota para encontrar jogador por senha - Nathalia
+
+    // Rota para ver o papel - Samuel
+    verPapel(senha) {
+        const jogador = this.encontrarJogadorPorSenha(senha);
+        if (!jogador) {
+          throw new Error("Senha inválida ou jogador não encontrado.");
+          // o throw new Error() é utilizado para lançar um erro.
+        }
+        return jogador.mostrarPapel();
+      }
+
+    // Rota para verificar se está ativo - Sara
+
+    // Rota para iniciar votação - Jessica
+
+    // Rota para encerrar votação - Alexandra
 }
 
 export default Jogo;
