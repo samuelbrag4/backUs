@@ -118,34 +118,46 @@ class Jogo {
 
     // Rota para iniciar jogo - Samuel
     iniciarJogo() {
+        // Escolhe aleatoriamente um grupo para ser o grupo dos sabotadores do jogo
         const grupoEscolhido = Math.floor(Math.random() * this.grupos) + 1;
-    
+
+        // Itera sobre a lista de alunos para definir o papel de cada aluno que está jogando
         this.alunos.forEach((aluno) => {
-          let jogador;
-    
-          if (aluno.grupo === grupoEscolhido) {
-            jogador = new Sabotador(aluno);
-          } else {
-            jogador = new Dev(aluno);
-          }
-    
-          this.jogadores.push(jogador);
+            let jogador;
+
+            // Se o aluno pertence ao grupo escolhido, ele é um Sabotador
+            if (aluno.grupo === grupoEscolhido) {
+                jogador = new Sabotador(aluno);
+            } else {
+                // Caso contrário, ele é um Dev
+                jogador = new Dev(aluno);
+            }
+
+            // Adiciona o jogador (Sabotador ou Dev) à lista de jogadores
+            this.jogadores.push(jogador);
         });
-    
+
+        // Exibe a lista de jogadores com seus respectivos papéis
         this.mostrarJogadores(this.jogadores);
-      }
+    }
 
     // Rota para encontrar jogador por senha - Nathalia
 
     // Rota para ver o papel - Samuel
     verPapel(senha) {
+        // Encontra o jogador correspondente à senha que foi fornecida
         const jogador = this.encontrarJogadorPorSenha(senha);
+
+        // Verifica se o jogador foi encontrado. Caso não, mostra um erro
         if (!jogador) {
-          throw new Error("Senha inválida ou jogador não encontrado.");
-          // o throw new Error() é utilizado para lançar um erro.
+            // Mostra um erro indicando que a senha é inválida ou o jogador não foi encontrado
+            throw new Error("Senha inválida ou jogador não encontrado.");
+            // O "throw new Error()" interrompe a execução e retorna uma mensagem de erro
         }
+
+        // Retorna o papel do jogador encontrado (Sabotador ou Dev)
         return jogador.mostrarPapel();
-      }
+    }
 
     // Rota para verificar se está ativo - Sara
 
