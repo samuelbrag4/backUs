@@ -2,11 +2,12 @@
 
 ## Introdução 📃
 Bem-vindo ao repositório do projeto BackUs do Grupo 04. Este projeto tem como objetivo praticar a criação de classes e rotas. Para aprendermos, utilizamos o clássico jogo "Among Us". Aqui você encontrará todas as informações necessárias para entender, contribuir e utilizar nosso projeto.
-
-## Membros e suas funções✌
+Nossa equipe é a 04 e ficou responsável por desenvolver a classe 'Jogo'.
+## Membros e suas funções📌
+Aqui estão todos os membros responsáveis pelo desenvolvimento deste projeto, juntamente de suas funções, separadas de acordo com cada etapa de desenvolvimento.
 <div>
 
-## Samuel dos Santos Braga
+## Samuel dos Santos Braga ⚙️
 <img src="https://avatars.githubusercontent.com/u/158165702?v=4" alt="Samuel dos Santos Braga" width="100">
 
 ### Atividades:
@@ -34,7 +35,7 @@ Bem-vindo ao repositório do projeto BackUs do Grupo 04. Este projeto tem como o
 
 <div>
 
-## Nathalia Santos Ferreira
+## Nathalia Santos Ferreira ⚙️
 <img src="https://avatars.githubusercontent.com/u/158168917?v=4" alt="Nathalia Santos" width="100">
 
 ### Atividades: 
@@ -53,7 +54,7 @@ Bem-vindo ao repositório do projeto BackUs do Grupo 04. Este projeto tem como o
 
 <div>
 
-## Fernanda Alves Louro
+## Fernanda Alves Louro ⚙️
 <img src="https://avatars.githubusercontent.com/u/158165855?v=4" alt="Fernanda Louro" width="100">
 
 ### Atividades: 
@@ -61,7 +62,7 @@ Bem-vindo ao repositório do projeto BackUs do Grupo 04. Este projeto tem como o
 - Criação do Diagrama de Classe (UML) no Miro;
 #### Etapa 02:
 - Criação do Diagrama de Classe (UML) no Miro;
-- Criação do método para verificação de existe um jogador.
+- Criação do método para verificar se existe um jogador.
 #### Etapa 03:
 - Criação do arquivo do servidor (server.js) e de seu conteúdo;
 - Criação da rota de verificar se apelido existe.
@@ -71,7 +72,7 @@ Bem-vindo ao repositório do projeto BackUs do Grupo 04. Este projeto tem como o
 
 <div>
 
-## Sara Esteves Dias de Souza
+## Sara Esteves Dias de Souza ⚙️
 <img src="https://avatars.githubusercontent.com/u/158165503?v=4" alt="Fernanda Louro" width="100">
 
 ### Atividades: 
@@ -79,7 +80,7 @@ Bem-vindo ao repositório do projeto BackUs do Grupo 04. Este projeto tem como o
 - Criação do Diagrama de Classe (UML) no Miro;
 #### Etapa 02:
 - Criação do Diagrama de Classe (UML) no Miro;
-- Criação do método para verificação de existe um apelido
+- Criação do método para verificar se existe um apelido.
 #### Etapa 03:
 - Criação da rota de adicionar aluno;
 - Criação da rota de mostrar alunos;
@@ -90,7 +91,7 @@ Bem-vindo ao repositório do projeto BackUs do Grupo 04. Este projeto tem como o
 
 <div>
 
-## Jéssica Prestelo de Jesús
+## Jéssica Prestelo de Jesús ⚙️
 <img src="https://avatars.githubusercontent.com/u/177644148?v=4" alt="Fernanda Louro" width="100">
 
 ### Atividades: 
@@ -98,7 +99,7 @@ Bem-vindo ao repositório do projeto BackUs do Grupo 04. Este projeto tem como o
 - Criação do Diagrama de Classe (UML) no Miro;
 #### Etapa 02:
 - Criação do Diagrama de Classe (UML) no Miro;
-- Criação do gerenciamento do histórico de mensagens entre os jogadores;
+- Gerenciamento do histórico de mensagens entre os jogadores;
 - Exportação da classe Jogo.
 #### Etapa 03:
 - Criação do arquivo "indexRoutes.js" e de seu conteúdo;
@@ -110,7 +111,7 @@ Bem-vindo ao repositório do projeto BackUs do Grupo 04. Este projeto tem como o
 
 <div>
 
-## Alexandra Cristina Aversani 
+## Alexandra Cristina Aversani ⚙️
 <img src="https://avatars.githubusercontent.com/u/158167102?v=4" alt="Fernanda Louro" width="100">
 
 ### Atividades: 
@@ -130,7 +131,7 @@ Bem-vindo ao repositório do projeto BackUs do Grupo 04. Este projeto tem como o
 
 <div>
 
-## Gabriela Moleta
+## Gabriela Moleta ⚙️
 <img src="https://avatars.githubusercontent.com/u/177643072?v=4" alt="Fernanda Louro" width="100">
 
 ### Atividades: 
@@ -153,4 +154,4 @@ Para contribuir com este projeto, siga os passos abaixo:
 5. Abra um Pull Request.
 
 ## Considerações Finais 👋
-Agradecemos por seu interesse e contribuição para o projeto BackUs do Grupo 04. Se você tiver alguma dúvida ou sugestão, sinta-se à vontade para abrir uma issue ou entrar em contato com qualquer um dos membros do grupo.
+Se você tiver alguma dúvida ou sugestão, sinta-se à vontade para abrir uma issue ou entrar em contato com qualquer um dos membros do grupo." → Poderia ser simplificado para: "Caso tenha dúvidas ou sugestões, abra uma issue ou entre em contato com um dos membros do grupo.
