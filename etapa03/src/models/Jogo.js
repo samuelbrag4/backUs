@@ -133,7 +133,33 @@ class Jogo {
         return `Aluno ${nome} removido com sucesso!.`;
     }
 
-        // Rota para mostrar jogadores - Alexandra
+        // Rota para mostrar jogadores - Gabriela
+        mostrarJogadores(dados) {
+            const tabelaComInstancia = dados.map((d) => {
+              const {
+                grupo,
+                nome,
+                apelido,
+                estaVivo,
+                localAtual,
+                tempoDesocupado,
+                votos,
+              } = d;
+              return {
+                Grupo: grupo,
+                Nome: nome,
+                Apelido: apelido,
+                Senha: d.pegarSenha(),
+                LocalAtual: localAtual,
+                Votos: votos,
+                TempoDesocupado: tempoDesocupado,
+                EstaVivo: estaVivo,
+                Tipo: d.constructor.name,
+              };
+            });
+        
+            console.table(tabelaComInstancia);
+          }
 
         // Rota para iniciar jogo - Samuel
         iniciarJogo() {
