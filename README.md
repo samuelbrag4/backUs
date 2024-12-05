@@ -3,6 +3,12 @@
 ## Introdução 📃
 Bem-vindo ao repositório do projeto BackUs do Grupo 04. Este projeto tem como objetivo praticar a criação de classes e rotas. Para aprendermos, utilizamos o clássico jogo "Among Us". Aqui você encontrará todas as informações necessárias para entender, contribuir e utilizar nosso projeto.
 Nossa equipe é a 04 e ficou responsável por desenvolver a classe 'Jogo'.
+
+**Nosso Diagrama de Classe no**[ 👉 Miro](https://miro.com/app/board/uXjVL-LQjd4=/?share_link_id=911660895516)
+
+Ele está organizado conforme cada etapa, mostrando o diagrama criado pelos membros do grupo em cada uma delas.
+
+
 ## Membros e suas funções📌
 Aqui estão todos os membros responsáveis pelo desenvolvimento deste projeto, juntamente de suas funções, separadas de acordo com cada etapa de desenvolvimento.
 <div>
@@ -29,6 +35,8 @@ Aqui estão todos os membros responsáveis pelo desenvolvimento deste projeto, j
 - Criação da rota de ver papel;
 - Criação do README;
 - Organização da equipe.
+#### Etapa 04:
+- Configuração do ambiente no postman.
 </div>
 
 </br>
@@ -48,6 +56,8 @@ Aqui estão todos os membros responsáveis pelo desenvolvimento deste projeto, j
 - Criação do arquivo de classe "Jogo.js"; 
 - Criação da rota de validar nome; 
 - Criação da rota de encontrar jogador por senha.
+#### Etapa 04:
+- Configuração do ambiente no postman.
 </div>
 
 </br>
@@ -66,6 +76,8 @@ Aqui estão todos os membros responsáveis pelo desenvolvimento deste projeto, j
 #### Etapa 03:
 - Criação do arquivo do servidor (server.js) e de seu conteúdo;
 - Criação da rota de verificar se apelido existe.
+#### Etapa 04:
+- Configuração do ambiente no postman.
 </div>
 
 </br>
@@ -85,6 +97,8 @@ Aqui estão todos os membros responsáveis pelo desenvolvimento deste projeto, j
 - Criação da rota de adicionar aluno;
 - Criação da rota de mostrar alunos;
 - Criação da rota de verificar se está ativo.
+#### Etapa 04:
+- Configuração do ambiente no postman.
 </div>
 
 </br>
@@ -105,6 +119,8 @@ Aqui estão todos os membros responsáveis pelo desenvolvimento deste projeto, j
 - Criação do arquivo "indexRoutes.js" e de seu conteúdo;
 - Criação da rota de remoção do aluno;
 - Criação da rota de iniciar votação;
+#### Etapa 04:
+- Configuração do ambiente no postman.
 </div>
 
 </br>
@@ -124,6 +140,8 @@ Aqui estão todos os membros responsáveis pelo desenvolvimento deste projeto, j
 #### Etapa 03:
 - Criação do arquivo de "cadastroRoutes.js";
 - Criação da rota de encerrar votação.
+#### Etapa 04:
+- Configuração do ambiente no postman.
 </div>
 
 </br>
@@ -142,6 +160,8 @@ Aqui estão todos os membros responsáveis pelo desenvolvimento deste projeto, j
 - Criação da lista de alunos cadastrados.
 #### Etapa 03:
 - Criação da rota de mostrar jogadores;
+#### Etapa 04:
+- Configuração do ambiente no postman.
 </div>
 
 ## Contribuição 🤝
