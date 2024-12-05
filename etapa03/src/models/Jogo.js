@@ -204,10 +204,21 @@ class Jogo {
             return jogador.mostrarPapel();
         };
 
-        // Rota para verificar se está ativo - Sara
-
+        // Rota para verificar se o jogador está vivo - Sara
+            verificarSeEstaVivo(jogador) {
+            // Verifica se a propriedade 'estaVivo' do objeto 'jogador' é falsa
+             if (!jogador.estaVivo) {
+         // Se o jogador não está vivo, lança um erro com uma mensagem personalizada
+            throw new Error(
+            `O jovem ${jogador.apelido} está eliminado 💀 e não pode mais jogar 😢`
+            );
+        }
+        // Se o jogador está vivo, retorna o objeto 'jogador'
+            return jogador;
+        }
+        
         // Rota para iniciar votação - Jessica
-
+            
         // Método para iniciar a votação
 
         iniciarVotacao() {
