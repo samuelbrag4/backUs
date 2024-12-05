@@ -115,23 +115,22 @@ class Jogo {
 
     // Rota para remover aluno - Jéssica
 
-    // Método para remover  aluno
     removerAluno(nome) {
-
-        // Encontra o aluno com o nome especificado
-        const index = this.alunos.findIndex(a => a.nome.toLowerCase() === nome.toLowerCase());
-
-        // Verifica se o aluno foi encontrado
-        if (index === -1) {
-            throw new Error(`Aluno com nome ${nome} não encontrado.`); // Fala há um erro caso o aluno não exista
+        // Encontrar o índice do aluno com o nome fornecido
+        const alunoIndex = this.alunos.findIndex((a) => a.nome === nome);
+      
+        // Se o aluno não for encontrado, retorna uma mensagem ou valor nulo
+        if (alunoIndex === -1) {
+          return { error: "Aluno não encontrado" }; // Retorna um objeto com erro
         }
-
-        // Remove o aluno da lista de alunos
-        this.alunos.splice(index, 1);
-
-        // Retorna uma mensagem confirmando a remoção
-        return `Aluno ${nome} removido com sucesso!.`;
-    }
+      
+        // Remove o aluno do array e retorna o objeto removido
+        const alunoRemovido = this.alunos.splice(alunoIndex, 1)[0];
+      
+        // Pode-se retornar o aluno removido para confirmação ou outra lógica
+        return { success: "Aluno removido com sucesso", aluno: alunoRemovido };
+      }
+      
 
         // Rota para mostrar jogadores - Gabriela
         mostrarJogadores(dados) {
@@ -146,20 +145,7 @@ class Jogo {
                 votos,
               } = d;
               return {
-                Grupo: grupo,
-                Nome: nome,
-                Apelido: apelido,
-                Senha: d.pegarSenha(),
-                LocalAtual: localAtual,
-                Votos: votos,
-                TempoDesocupado: tempoDesocupado,
-                EstaVivo: estaVivo,
-                Tipo: d.constructor.name,
-              };
-            });
         
-            console.table(tabelaComInstancia);
-          }
 
         // Rota para iniciar jogo - Samuel
         iniciarJogo() {
