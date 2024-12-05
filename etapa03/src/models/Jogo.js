@@ -115,28 +115,27 @@ class Jogo {
 
     // Rota para remover aluno - Jéssica
 
-    // Método para remover  aluno
     removerAluno(nome) {
+        // Encontrar o índice do aluno com o nome fornecido
+        const alunoIndex = this.alunos.findIndex((a) => a.nome === nome);
 
-        // Encontra o aluno com o nome especificado
-        const index = this.alunos.findIndex(a => a.nome.toLowerCase() === nome.toLowerCase());
-
-        // Verifica se o aluno foi encontrado
-        if (index === -1) {
-            throw new Error(`Aluno com nome ${nome} não encontrado.`); // Fala há um erro caso o aluno não exista
+        // Se o aluno não for encontrado, retorna uma mensagem ou valor nulo
+        if (alunoIndex === -1) {
+            return { error: "Aluno não encontrado" }; // Retorna um objeto com erro
         }
 
-        // Remove o aluno da lista de alunos
-        this.alunos.splice(index, 1);
+        // Remove o aluno do array e retorna o objeto removido
+        const alunoRemovido = this.alunos.splice(alunoIndex, 1)[0];
 
-        // Retorna uma mensagem confirmando a remoção
-        return `Aluno ${nome} removido com sucesso!.`;
+        // Pode-se retornar o aluno removido para confirmação ou outra lógica
+        return { success: "Aluno removido com sucesso", aluno: alunoRemovido };
     }
 
-        // Rota para mostrar jogadores - Gabriela
-        mostrarJogadores(dados) {
-            const tabelaComInstancia = dados.map((d) => {
-              const {
+
+    // Rota para mostrar jogadores - Gabriela
+    mostrarJogadores(dados) {
+        const tabelaComInstancia = dados.map((d) => {
+            const {
                 grupo,
                 nome,
                 apelido,
@@ -144,8 +143,8 @@ class Jogo {
                 localAtual,
                 tempoDesocupado,
                 votos,
-              } = d;
-              return {
+            } = d;
+            return {
                 Grupo: grupo,
                 Nome: nome,
                 Apelido: apelido,
@@ -155,54 +154,54 @@ class Jogo {
                 TempoDesocupado: tempoDesocupado,
                 EstaVivo: estaVivo,
                 Tipo: d.constructor.name,
-              };
-            });
-        
-            console.table(tabelaComInstancia);
-          }
+            };
+        });
 
-        // Rota para iniciar jogo - Samuel
-        iniciarJogo() {
-            // Escolhe aleatoriamente um grupo para ser o grupo dos sabotadores do jogo
-            const grupoEscolhido = Math.floor(Math.random() * this.grupos) + 1;
+        console.table(tabelaComInstancia);
+    }
 
-            // Itera sobre a lista de alunos para definir o papel de cada aluno que está jogando
-            this.alunos.forEach((aluno) => {
-                let jogador;
+    // Rota para iniciar jogo - Samuel
+    iniciarJogo() {
+        // Escolhe aleatoriamente um grupo para ser o grupo dos sabotadores do jogo
+        const grupoEscolhido = Math.floor(Math.random() * this.grupos) + 1;
 
-                // Se o aluno pertence ao grupo escolhido, ele é um Sabotador
-                if (aluno.grupo === grupoEscolhido) {
-                    jogador = new Sabotador(aluno);
-                } else {
-                    // Caso contrário, ele é um Dev
-                    jogador = new Dev(aluno);
-                }
+        // Itera sobre a lista de alunos para definir o papel de cada aluno que está jogando
+        this.alunos.forEach((aluno) => {
+            let jogador;
 
-                // Adiciona o jogador (Sabotador ou Dev) à lista de jogadores
-                this.jogadores.push(jogador);
-            });
-
-            // Exibe a lista de jogadores com seus respectivos papéis
-            this.mostrarJogadores(this.jogadores);
-        };
-
-        // Rota para encontrar jogador por senha - Nathalia
-
-        // Rota para ver o papel - Samuel
-        verPapel(senha) {
-            // Encontra o jogador correspondente à senha que foi fornecida
-            const jogador = this.encontrarJogadorPorSenha(senha);
-
-            // Verifica se o jogador foi encontrado. Caso não, mostra um erro
-            if (!jogador) {
-                // Mostra um erro indicando que a senha é inválida ou o jogador não foi encontrado
-                throw new Error("Senha inválida ou jogador não encontrado.");
-                // O "throw new Error()" interrompe a execução e retorna uma mensagem de erro
+            // Se o aluno pertence ao grupo escolhido, ele é um Sabotador
+            if (aluno.grupo === grupoEscolhido) {
+                jogador = new Sabotador(aluno);
+            } else {
+                // Caso contrário, ele é um Dev
+                jogador = new Dev(aluno);
             }
 
-            // Retorna o papel do jogador encontrado (Sabotador ou Dev)
-            return jogador.mostrarPapel();
-        };
+            // Adiciona o jogador (Sabotador ou Dev) à lista de jogadores
+            this.jogadores.push(jogador);
+        });
+
+        // Exibe a lista de jogadores com seus respectivos papéis
+        this.mostrarJogadores(this.jogadores);
+    };
+
+    // Rota para encontrar jogador por senha - Nathalia
+
+    // Rota para ver o papel - Samuel
+    verPapel(senha) {
+        // Encontra o jogador correspondente à senha que foi fornecida
+        const jogador = this.encontrarJogadorPorSenha(senha);
+
+        // Verifica se o jogador foi encontrado. Caso não, mostra um erro
+        if (!jogador) {
+            // Mostra um erro indicando que a senha é inválida ou o jogador não foi encontrado
+            throw new Error("Senha inválida ou jogador não encontrado.");
+            // O "throw new Error()" interrompe a execução e retorna uma mensagem de erro
+        }
+
+        // Retorna o papel do jogador encontrado (Sabotador ou Dev)
+        return jogador.mostrarPapel();
+    };
 
         // Rota para verificar se o jogador está vivo - Sara
             verificarSeEstaVivo(jogador) {
@@ -225,78 +224,76 @@ class Jogo {
             if (this.votacaoAtiva) {
               throw new Error(
                 "Votação já em andamento. Corra para o Auditório, discuta no Chat e decida seu voto antes de encerrar a votação!!!"
-              );
-            }
-          
-            this.votacaoAtiva = true;
-          
-            // Marcar os jogadores vivos com o símbolo de votação
-            this.jogadores.forEach((j) => {
-              if (j.estaVivo) {
-                j.apelido += " - 🗳️";  // Adiciona o ícone de votação ao apelido
-              }
-            });
-          
-            // Configurar o timer para encerrar a votação após 6 minutos
-            this.timerVotacao = setTimeout(() => {
-              console.log("A votação foi encerrada automaticamente após 6 minutos.");
-              // A lógica para lidar com o encerramento pode ser implementada aqui, se necessário
-            }, 6 * 60 * 1000); // 6 minutos em milissegundos
-          }
-          
-         
-
-        // Rota para encerrar votação - Alexandra
-        encerrarVotacao() {
-            // Verifica se há uma votação ativa
-            if (!this.votacaoAtiva) {
-                throw new Error("Não há votação ativa no momento para encerrar.");
-            }
-        
-            // Calcula o número máximo de votos entre os jogadores vivos
-            const maxVotos = Math.max(...this.jogadores.map((j) => j.votos || 0));
-        
-            // Filtra os jogadores que possuem o número máximo de votos e estão vivos
-            const maisVotados = this.jogadores.filter(
-                (j) => j.votos === maxVotos && j.estaVivo
             );
-        
-            // Se houver mais de um jogador empatado, pode ser adicionada uma regra extra
-            if (maisVotados.length > 1) {
-                console.log("Empate na votação! Nenhum jogador foi eliminado.");
-            } else {
-                // Marca os jogadores mais votados como eliminados
-                maisVotados.forEach((jogador) => {
-                    jogador.estaVivo = false; // Marca o jogador como morto
-                    console.log(`O jogador ${jogador.nome} foi eliminado!`);
-                });
-            }
-        
-            // Reseta os votos de todos os jogadores e atualiza os apelidos
-            this.jogadores.forEach((j) => {
-                j.votos = 0; // Zera os votos
-                j.apelido = j.apelido.replace(" - 🗳️", ""); // Remove o indicador de voto
-                if (!j.estaVivo) {
-                    // Marca os jogadores mortos com o ícone "💀"
-                    j.apelido = j.apelido.includes("💀") ? j.apelido : j.apelido + " - 💀";
-                }
-            });
-        
-            // Marca a votação como encerrada
-            this.votacaoAtiva = false;
-        
-            // Limpa o temporizador da votação, se existir
-            if (this.timerVotacao) {
-                clearTimeout(this.timerVotacao);
-                this.timerVotacao = null;
-            }
-        
-            // Reseta o chat após a votação
-            this.chat.mensagens = [];
-        
-            // Mostra a lista atualizada de jogadores
-            this.mostrarJogadores(this.jogadores);
         }
+
+        this.votacaoAtiva = true;
+
+        // Marcar os jogadores vivos com o símbolo de votação
+        this.jogadores.forEach((j) => {
+            if (j.estaVivo) {
+                j.apelido += " - 🗳️";  // Adiciona o ícone de votação ao apelido
+            }
+        });
+
+        // Configurar o timer para encerrar a votação após 6 minutos
+        this.timerVotacao = setTimeout(() => {
+            console.log("A votação foi encerrada automaticamente após 6 minutos.");
+            // A lógica para lidar com o encerramento pode ser implementada aqui, se necessário
+        }, 6 * 60 * 1000); // 6 minutos em milissegundos
     }
+
+    // Rota para encerrar votação - Alexandra
+    encerrarVotacao() {
+        // Verifica se há uma votação ativa
+        if (!this.votacaoAtiva) {
+            throw new Error("Não há votação ativa no momento para encerrar.");
+        }
+
+        // Calcula o número máximo de votos entre os jogadores vivos
+        const maxVotos = Math.max(...this.jogadores.map((j) => j.votos || 0));
+
+        // Filtra os jogadores que possuem o número máximo de votos e estão vivos
+        const maisVotados = this.jogadores.filter(
+            (j) => j.votos === maxVotos && j.estaVivo
+        );
+
+        // Se houver mais de um jogador empatado, pode ser adicionada uma regra extra
+        if (maisVotados.length > 1) {
+            console.log("Empate na votação! Nenhum jogador foi eliminado.");
+        } else {
+            // Marca os jogadores mais votados como eliminados
+            maisVotados.forEach((jogador) => {
+                jogador.estaVivo = false; // Marca o jogador como morto
+                console.log(`O jogador ${jogador.nome} foi eliminado!`);
+            });
+        }
+
+        // Reseta os votos de todos os jogadores e atualiza os apelidos
+        this.jogadores.forEach((j) => {
+            j.votos = 0; // Zera os votos
+            j.apelido = j.apelido.replace(" - 🗳️", ""); // Remove o indicador de voto
+            if (!j.estaVivo) {
+                // Marca os jogadores mortos com o ícone "💀"
+                j.apelido = j.apelido.includes("💀") ? j.apelido : j.apelido + " - 💀";
+            }
+        });
+
+        // Marca a votação como encerrada
+        this.votacaoAtiva = false;
+
+        // Limpa o temporizador da votação, se existir
+        if (this.timerVotacao) {
+            clearTimeout(this.timerVotacao);
+            this.timerVotacao = null;
+        }
+
+        // Reseta o chat após a votação
+        this.chat.mensagens = [];
+
+        // Mostra a lista atualizada de jogadores
+        this.mostrarJogadores(this.jogadores);
+    }
+}
 
 export default Jogo;
