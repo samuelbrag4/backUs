@@ -123,7 +123,6 @@ Aqui estão todos os membros responsáveis pelo desenvolvimento deste projeto, j
 - Criação da lista do total de grupos.
 #### Etapa 03:
 - Criação do arquivo de "cadastroRoutes.js";
-- Criação da rota de mostrar jogadores;
 - Criação da rota de encerrar votação.
 </div>
 
@@ -142,7 +141,7 @@ Aqui estão todos os membros responsáveis pelo desenvolvimento deste projeto, j
 - Criação do constructor da classe "Jogo.js";
 - Criação da lista de alunos cadastrados.
 #### Etapa 03:
-- 
+- Criação da rota de mostrar jogadores;
 </div>
 
 ## Contribuição 🤝
