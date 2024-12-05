@@ -131,7 +131,6 @@ class Jogo {
         return { success: "Aluno removido com sucesso", aluno: alunoRemovido };
       }
       
-
         // Rota para mostrar jogadores - Gabriela
         mostrarJogadores(dados) {
             const tabelaComInstancia = dados.map((d) => {
@@ -145,7 +144,20 @@ class Jogo {
                 votos,
               } = d;
               return {
+                Grupo: grupo,
+                Nome: nome,
+                Apelido: apelido,
+                Senha: d.pegarSenha(),
+                LocalAtual: localAtual,
+                Votos: votos,
+                TempoDesocupado: tempoDesocupado,
+                EstaVivo: estaVivo,
+                Tipo: d.constructor.name,
+              };
+            });
         
+            console.table(tabelaComInstancia);
+          }
 
         // Rota para iniciar jogo - Samuel
         iniciarJogo() {
@@ -200,23 +212,14 @@ class Jogo {
                 "Votação já em andamento. Corra para o Auditório, discuta no Chat e decida seu voto antes de encerrar a votação!!!"
               );
             }
-          
+        
             this.votacaoAtiva = true;
-          
-            // Marcar os jogadores vivos com o símbolo de votação
             this.jogadores.forEach((j) => {
-              if (j.estaVivo) {
-                j.apelido += " - 🗳️";  // Adiciona o ícone de votação ao apelido
-              }
+              if (j.estaVivo) j.apelido += " - 🗳️";
             });
-          
-            // Configurar o timer para encerrar a votação após 6 minutos
-            this.timerVotacao = setTimeout(() => {
-              console.log("A votação foi encerrada automaticamente após 6 minutos.");
-              // A lógica para lidar com o encerramento pode ser implementada aqui, se necessário
-            }, 6 * 60 * 1000); // 6 minutos em milissegundos
+        
+            this.timerVotacao = setTimeout(() => this.encerrarVotacao(), 6 * 60 * 1000);
           }
-          
          
 
         // Rota para encerrar votação - Alexandra
