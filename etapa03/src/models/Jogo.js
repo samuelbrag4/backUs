@@ -225,8 +225,56 @@ class Jogo {
         };
 
         // Rota para encerrar votação - Alexandra
+        encerrarVotacao() {
+            // Verifica se há uma votação ativa
+            if (!this.votacaoAtiva) {
+                throw new Error("Não há votação ativa no momento para encerrar.");
+            }
+        
+            // Calcula o número máximo de votos entre os jogadores vivos
+            const maxVotos = Math.max(...this.jogadores.map((j) => j.votos || 0));
+        
+            // Filtra os jogadores que possuem o número máximo de votos e estão vivos
+            const maisVotados = this.jogadores.filter(
+                (j) => j.votos === maxVotos && j.estaVivo
+            );
+        
+            // Se houver mais de um jogador empatado, pode ser adicionada uma regra extra
+            if (maisVotados.length > 1) {
+                console.log("Empate na votação! Nenhum jogador foi eliminado.");
+            } else {
+                // Marca os jogadores mais votados como eliminados
+                maisVotados.forEach((jogador) => {
+                    jogador.estaVivo = false; // Marca o jogador como morto
+                    console.log(`O jogador ${jogador.nome} foi eliminado!`);
+                });
+            }
+        
+            // Reseta os votos de todos os jogadores e atualiza os apelidos
+            this.jogadores.forEach((j) => {
+                j.votos = 0; // Zera os votos
+                j.apelido = j.apelido.replace(" - 🗳️", ""); // Remove o indicador de voto
+                if (!j.estaVivo) {
+                    // Marca os jogadores mortos com o ícone "💀"
+                    j.apelido = j.apelido.includes("💀") ? j.apelido : j.apelido + " - 💀";
+                }
+            });
+        
+            // Marca a votação como encerrada
+            this.votacaoAtiva = false;
+        
+            // Limpa o temporizador da votação, se existir
+            if (this.timerVotacao) {
+                clearTimeout(this.timerVotacao);
+                this.timerVotacao = null;
+            }
+        
+            // Reseta o chat após a votação
+            this.chat.mensagens = [];
+        
+            // Mostra a lista atualizada de jogadores
+            this.mostrarJogadores(this.jogadores);
+        }
     }
-
-
 
 export default Jogo;
