@@ -208,47 +208,30 @@ class Jogo {
 
         // Rota para iniciar votação - Jessica
 
-        // Método para iniciar a votação
-
         iniciarVotacao() {
-            // Verifica se a votação já está ativa
             if (this.votacaoAtiva) {
-                // Se já houver uma votação ativa, mostra um erro
-                throw new Error("A votação já está ativa.");
+              throw new Error(
+                "Votação já em andamento. Corra para o Auditório, discuta no Chat e decida seu voto antes de encerrar a votação!!!"
+              );
             }
-
-            // Marca a votação como ativa
+          
             this.votacaoAtiva = true;
-
-            // Exibe uma mensagem no console informando que a votação foi iniciada
-            console.log("Votação iniciada! Agora os jogadores podem votar.");
-        };
-
-        // Método para contar os votos
-        contarVotos() {
-
-            // Cria um objeto para armazenar a quantidade de votos
-            const votos = {};
-
-            // Itera sobre todos os jogadores para contar seus votos
-            for (let i = 0; i < this.jogadores.length; i++) {
-                const jogador = this.jogadores[i];
-
-                // Verifica se o jogador fez um voto
-                if (jogador.voto) {
-                    // Se o voto já existe, incrementa a contagem
-                    if (votos[jogador.voto]) {
-                        votos[jogador.voto] += 1;
-                    } else {
-                        // Se for o primeiro voto para esse item, inicia a contagem
-                        votos[jogador.voto] = 1;
-                    }
-                }
-            }
-
-            // Retorna o objeto de votos, que contém o número de votos por cada opção
-            return votos;
-        };
+          
+            // Marcar os jogadores vivos com o símbolo de votação
+            this.jogadores.forEach((j) => {
+              if (j.estaVivo) {
+                j.apelido += " - 🗳️";  // Adiciona o ícone de votação ao apelido
+              }
+            });
+          
+            // Configurar o timer para encerrar a votação após 6 minutos
+            this.timerVotacao = setTimeout(() => {
+              console.log("A votação foi encerrada automaticamente após 6 minutos.");
+              // A lógica para lidar com o encerramento pode ser implementada aqui, se necessário
+            }, 6 * 60 * 1000); // 6 minutos em milissegundos
+          }
+          
+         
 
         // Rota para encerrar votação - Alexandra
         encerrarVotacao() {
