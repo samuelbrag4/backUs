@@ -19,7 +19,7 @@ class Jogo {
     verificarNomeExistente(nome) {
         if (/\d/.test(nome)) {
             // A expressão "/\d/" é utilizada para encontrar dígitos numéricos dentro de uma string.
-            throw new Error("Nome não pode conter números")
+            throw new Error("Nome não pode conter números");
             // O "throw" é utilizado para lançar uma exceção.
             // O "new Error()" é utilizado para criar um objeto de erro e logo a frente é passada a mensagem de erro.
         }
@@ -32,7 +32,7 @@ class Jogo {
         );
 
         if (nomeExistente) {
-            throw new Error(`Aluno com nome ${nome} já cadastrado. Escolha outro nome.`)
+            throw new Error(`Aluno com nome ${nome} já cadastrado. Escolha outro nome.`);
         }
     }
 
@@ -42,7 +42,7 @@ class Jogo {
             (a) => String(a.apelido) === String(apelido)
         );
         if (apelidoExistente) {
-            throw new Error(`Aluno com apelido ${apelido} já existe. Escolha outro.`)
+            throw new Error(`Aluno com apelido ${apelido} já existe. Escolha outro.`);
         }
     }
 
@@ -52,6 +52,7 @@ class Jogo {
         // Adiciona o aluno passado como argumento ao array de alunos
         this.alunos.push(aluno);
     }
+
     // Método para mostrar os alunos cadastrados, com opções de filtragem - Sara
     mostrarAlunos(grupo = null, nome = null) {
         // Verifica se a lista de alunos está vazia
@@ -114,174 +115,118 @@ class Jogo {
 
     // Rota para remover aluno - Jéssica
 
-// Método para remover aluno
-removerAluno(nome) {
-    // Encontra o aluno com o nome especificado
-    const index = this.alunos.findIndex(a => a.nome.toLowerCase() === nome.toLowerCase());
-
-    // Verifica se o aluno foi encontrado
-    if (index === -1) {
-        throw new Error(`Aluno com nome ${nome} não encontrado.`); // Lança erro caso o aluno não exista
-    }
-
-    // Remove o aluno da lista de alunos
-    this.alunos.splice(index, 1);
-
-    // Retorna uma mensagem confirmando a remoção
-    return `Aluno ${nome} removido com sucesso!`;
-}
-
-
     // Método para remover  aluno
-     removerAluno(nome) {
+    removerAluno(nome) {
 
-    // Encontra o aluno com o nome especificado
-    const index = this.alunos.findIndex(a => a.nome.toLowerCase() === nome.toLowerCase());
+        // Encontra o aluno com o nome especificado
+        const index = this.alunos.findIndex(a => a.nome.toLowerCase() === nome.toLowerCase());
 
-    // Verifica se o aluno foi encontrado
-    if (index === -1) {
-        throw new Error(`Aluno com nome ${nome} não encontrado.`); // Fala há um erro caso o aluno não exista
-    }
-
-    // Remove o aluno da lista de alunos
-    this.alunos.splice(index, 1);
-
-    // Retorna uma mensagem confirmando a remoção
-    return `Aluno ${nome} removido com sucesso!.`;
-
-    // Rota para mostrar jogadores - Alexandra
-
-    // Rota para iniciar jogo - Samuel
-    iniciarJogo() {
-        // Escolhe aleatoriamente um grupo para ser o grupo dos sabotadores do jogo
-        const grupoEscolhido = Math.floor(Math.random() * this.grupos) + 1;
-
-        // Itera sobre a lista de alunos para definir o papel de cada aluno que está jogando
-        this.alunos.forEach((aluno) => {
-            let jogador;
-
-            // Se o aluno pertence ao grupo escolhido, ele é um Sabotador
-            if (aluno.grupo === grupoEscolhido) {
-                jogador = new Sabotador(aluno);
-            } else {
-                // Caso contrário, ele é um Dev
-                jogador = new Dev(aluno);
-            }
-
-            // Adiciona o jogador (Sabotador ou Dev) à lista de jogadores
-            this.jogadores.push(jogador);
-        });
-
-        // Exibe a lista de jogadores com seus respectivos papéis
-        this.mostrarJogadores(this.jogadores);
-    }
-
-    // Rota para encontrar jogador por senha - Nathalia
-
-    // Rota para ver o papel - Samuel
-    verPapel(senha) {
-        // Encontra o jogador correspondente à senha que foi fornecida
-        const jogador = this.encontrarJogadorPorSenha(senha);
-
-        // Verifica se o jogador foi encontrado. Caso não, mostra um erro
-        if (!jogador) {
-            // Mostra um erro indicando que a senha é inválida ou o jogador não foi encontrado
-            throw new Error("Senha inválida ou jogador não encontrado.");
-            // O "throw new Error()" interrompe a execução e retorna uma mensagem de erro
+        // Verifica se o aluno foi encontrado
+        if (index === -1) {
+            throw new Error(`Aluno com nome ${nome} não encontrado.`); // Fala há um erro caso o aluno não exista
         }
 
-        // Retorna o papel do jogador encontrado (Sabotador ou Dev)
-        return jogador.mostrarPapel();
+        // Remove o aluno da lista de alunos
+        this.alunos.splice(index, 1);
+
+        // Retorna uma mensagem confirmando a remoção
+        return `Aluno ${nome} removido com sucesso!.`;
     }
 
-    // Rota para verificar se está ativo - Sara
+        // Rota para mostrar jogadores - Alexandra
 
-    // Rota para iniciar votação - Jessica
+        // Rota para iniciar jogo - Samuel
+        iniciarJogo() {
+            // Escolhe aleatoriamente um grupo para ser o grupo dos sabotadores do jogo
+            const grupoEscolhido = Math.floor(Math.random() * this.grupos) + 1;
 
-    // Método para iniciar a votação
-iniciarVotacao() {
-    // Verifica se a votação já está ativa
-    if (this.votacaoAtiva) {
-        // Se já houver uma votação ativa, mostra um erro
-        throw new Error("A votação já está ativa.");
-    }
+            // Itera sobre a lista de alunos para definir o papel de cada aluno que está jogando
+            this.alunos.forEach((aluno) => {
+                let jogador;
 
-    // Marca a votação como ativa
-    this.votacaoAtiva = true;
+                // Se o aluno pertence ao grupo escolhido, ele é um Sabotador
+                if (aluno.grupo === grupoEscolhido) {
+                    jogador = new Sabotador(aluno);
+                } else {
+                    // Caso contrário, ele é um Dev
+                    jogador = new Dev(aluno);
+                }
 
-    // Exibe uma mensagem no console informando que a votação foi iniciada
-    console.log("Votação iniciada! Agora os jogadores podem votar.");
-}
+                // Adiciona o jogador (Sabotador ou Dev) à lista de jogadores
+                this.jogadores.push(jogador);
+            });
 
-// Método para contar os votos
-contarVotos() {
-    // Cria um objeto para armazenar a quantidade de votos
-    const votos = {};
+            // Exibe a lista de jogadores com seus respectivos papéis
+            this.mostrarJogadores(this.jogadores);
+        };
 
-    // Itera sobre todos os jogadores para contar seus votos
-    for (let i = 0; i < this.jogadores.length; i++) {
-        const jogador = this.jogadores[i];
+        // Rota para encontrar jogador por senha - Nathalia
 
-        // Verifica se o jogador fez um voto
-        if (jogador.voto) {
-            // Se o voto já existe, incrementa a contagem
-            if (votos[jogador.voto]) {
-                votos[jogador.voto] += 1;
-            } else {
-                // Se for o primeiro voto para esse item, inicia a contagem
-                votos[jogador.voto] = 1;
+        // Rota para ver o papel - Samuel
+        verPapel(senha) {
+            // Encontra o jogador correspondente à senha que foi fornecida
+            const jogador = this.encontrarJogadorPorSenha(senha);
+
+            // Verifica se o jogador foi encontrado. Caso não, mostra um erro
+            if (!jogador) {
+                // Mostra um erro indicando que a senha é inválida ou o jogador não foi encontrado
+                throw new Error("Senha inválida ou jogador não encontrado.");
+                // O "throw new Error()" interrompe a execução e retorna uma mensagem de erro
             }
-        }
-    }
 
-    // Retorna o objeto de votos, que contém o número de votos por cada opção
-    return votos;
-}
+            // Retorna o papel do jogador encontrado (Sabotador ou Dev)
+            return jogador.mostrarPapel();
+        };
 
+        // Rota para verificar se está ativo - Sara
 
-// Método para iniciar a votação
+        // Rota para iniciar votação - Jessica
 
-iniciarVotacao() {
-    // Verifica se a votação já está ativa
-    if (this.votacaoAtiva) {
-        // Se já houver uma votação ativa, mostra um erro
-        throw new Error("A votação já está ativa.");
-    }
+        // Método para iniciar a votação
 
-    // Marca a votação como ativa
-    this.votacaoAtiva = true;
-
-    // Exibe uma mensagem no console informando que a votação foi iniciada
-    console.log("Votação iniciada! Agora os jogadores podem votar.");
-}
-
-// Método para contar os votos
-contarVotos() {
-    
-    // Cria um objeto para armazenar a quantidade de votos
-    const votos = {};
-
-    // Itera sobre todos os jogadores para contar seus votos
-    for (let i = 0; i < this.jogadores.length; i++) {
-        const jogador = this.jogadores[i];
-
-        // Verifica se o jogador fez um voto
-        if (jogador.voto) {
-            // Se o voto já existe, incrementa a contagem
-            if (votos[jogador.voto]) {
-                votos[jogador.voto] += 1;
-            } else {
-                // Se for o primeiro voto para esse item, inicia a contagem
-                votos[jogador.voto] = 1;
+        iniciarVotacao() {
+            // Verifica se a votação já está ativa
+            if (this.votacaoAtiva) {
+                // Se já houver uma votação ativa, mostra um erro
+                throw new Error("A votação já está ativa.");
             }
-        }
+
+            // Marca a votação como ativa
+            this.votacaoAtiva = true;
+
+            // Exibe uma mensagem no console informando que a votação foi iniciada
+            console.log("Votação iniciada! Agora os jogadores podem votar.");
+        };
+
+        // Método para contar os votos
+        contarVotos() {
+
+            // Cria um objeto para armazenar a quantidade de votos
+            const votos = {};
+
+            // Itera sobre todos os jogadores para contar seus votos
+            for (let i = 0; i < this.jogadores.length; i++) {
+                const jogador = this.jogadores[i];
+
+                // Verifica se o jogador fez um voto
+                if (jogador.voto) {
+                    // Se o voto já existe, incrementa a contagem
+                    if (votos[jogador.voto]) {
+                        votos[jogador.voto] += 1;
+                    } else {
+                        // Se for o primeiro voto para esse item, inicia a contagem
+                        votos[jogador.voto] = 1;
+                    }
+                }
+            }
+
+            // Retorna o objeto de votos, que contém o número de votos por cada opção
+            return votos;
+        };
+
+        // Rota para encerrar votação - Alexandra
     }
 
-    // Retorna o objeto de votos, que contém o número de votos por cada opção
-    return votos;
-}
 
-    // Rota para encerrar votação - Alexandra
-}
 
 export default Jogo;
