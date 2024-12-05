@@ -114,6 +114,24 @@ class Jogo {
 
     // Rota para remover aluno - Jéssica
 
+// Método para remover aluno
+removerAluno(nome) {
+    // Encontra o aluno com o nome especificado
+    const index = this.alunos.findIndex(a => a.nome.toLowerCase() === nome.toLowerCase());
+
+    // Verifica se o aluno foi encontrado
+    if (index === -1) {
+        throw new Error(`Aluno com nome ${nome} não encontrado.`); // Lança erro caso o aluno não exista
+    }
+
+    // Remove o aluno da lista de alunos
+    this.alunos.splice(index, 1);
+
+    // Retorna uma mensagem confirmando a remoção
+    return `Aluno ${nome} removido com sucesso!`;
+}
+
+
     // Método para remover  aluno
      removerAluno(nome) {
 
@@ -179,6 +197,47 @@ class Jogo {
     // Rota para verificar se está ativo - Sara
 
     // Rota para iniciar votação - Jessica
+
+    // Método para iniciar a votação
+iniciarVotacao() {
+    // Verifica se a votação já está ativa
+    if (this.votacaoAtiva) {
+        // Se já houver uma votação ativa, mostra um erro
+        throw new Error("A votação já está ativa.");
+    }
+
+    // Marca a votação como ativa
+    this.votacaoAtiva = true;
+
+    // Exibe uma mensagem no console informando que a votação foi iniciada
+    console.log("Votação iniciada! Agora os jogadores podem votar.");
+}
+
+// Método para contar os votos
+contarVotos() {
+    // Cria um objeto para armazenar a quantidade de votos
+    const votos = {};
+
+    // Itera sobre todos os jogadores para contar seus votos
+    for (let i = 0; i < this.jogadores.length; i++) {
+        const jogador = this.jogadores[i];
+
+        // Verifica se o jogador fez um voto
+        if (jogador.voto) {
+            // Se o voto já existe, incrementa a contagem
+            if (votos[jogador.voto]) {
+                votos[jogador.voto] += 1;
+            } else {
+                // Se for o primeiro voto para esse item, inicia a contagem
+                votos[jogador.voto] = 1;
+            }
+        }
+    }
+
+    // Retorna o objeto de votos, que contém o número de votos por cada opção
+    return votos;
+}
+
 
 // Método para iniciar a votação
 

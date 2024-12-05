@@ -187,6 +187,54 @@ mostrarAlunos(grupo = null, nome = null) {
 }
 }
 
+// Jéssica
+
+// Jéssica Prestelo - Criação da rota de remoção do aluno e da rota de iniciar votação;
+
+import { Router } from "express";
+
+const jogoRoutes = Router();
+
+// Simulação de banco de dados em memória
+let alunos = [
+{ id: 1, nome: "Jéssica", status: "ativo" },
+{ id: 2, nome: "Alexandra", status: "ativo" },
+{ id: 3, nome: "Samuel", status: "ativo" },
+];
+
+let votaçãoIniciada = false; // Controla se a votação foi iniciada
+
+// Rota para iniciar a votação
+jogoRoutes.post("/iniciar-votacao", (req, res) => {
+if (votaçãoIniciada) {
+    return res.status(400).json({ error: "A votação já foi iniciada." }); // Se a votação já foi iniciada
+}
+
+  votaçãoIniciada = true; // Marca a votação como iniciada
+return res.status(200).json({ message: "Votação iniciada com sucesso!" });
+});
+
+// Rota para remover um aluno da lista
+jogoRoutes.delete("/remover-aluno/:id", (req, res) => {
+  const { id } = req.params; // Encontra o ID do aluno a ser removido
+
+  // Encontra o índice do aluno no array de alunos
+const alunoIndex = alunos.findIndex((aluno) => aluno.id == id);
+
+if (alunoIndex === -1) {
+    return res.status(404).json({ error: "Aluno não encontrado." }); // Retorna erro 404 se o aluno não for encontrado
+}
+
+  // Remove o aluno da lista de alunos
+alunos.splice(alunoIndex, 1);
+
+  return res.status(204).send(); // Retorna 204 (No Content) mostrando que a remoção foi bem-sucedida
+});
+
+// Adição da rota que lista os alunos
+jogoRoutes.get("/listar-alunos", (req, res) => {
+  return res.json(alunos); // Retorna a lista de alunos
+});
 
 
 export default Jogo; // Jéssica
