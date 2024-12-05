@@ -31,8 +31,8 @@ Aqui estão todos os membros responsáveis pelo desenvolvimento deste projeto, j
 #### Etapa 03:
 - Criação da estrutura de pastas;
 - Criação do diagrama de classe (UML) no Miro;
-- Criação da rota de iniciar jogo;
-- Criação da rota de ver papel;
+- Criação do metodo de iniciar jogo;
+- Criação do método de ver papel;
 - Criação do README;
 - Organização da equipe.
 #### Etapa 04:
@@ -54,8 +54,8 @@ Aqui estão todos os membros responsáveis pelo desenvolvimento deste projeto, j
 - Criação do método para adicionar aluno.
 #### Etapa 03:
 - Criação do arquivo de classe "Jogo.js"; 
-- Criação da rota de validar nome; 
-- Criação da rota de encontrar jogador por senha.
+- Criação do método de validar nome; 
+- Criação do método de encontrar jogador por senha.
 #### Etapa 04:
 - Configuração do ambiente no postman.
 </div>
@@ -75,7 +75,7 @@ Aqui estão todos os membros responsáveis pelo desenvolvimento deste projeto, j
 - Criação do método para verificar se existe um jogador.
 #### Etapa 03:
 - Criação do arquivo do servidor (server.js) e de seu conteúdo;
-- Criação da rota de verificar se apelido existe.
+- Criação do método de verificar se apelido existe.
 #### Etapa 04:
 - Configuração do ambiente no postman.
 </div>
@@ -94,9 +94,9 @@ Aqui estão todos os membros responsáveis pelo desenvolvimento deste projeto, j
 - Criação do Diagrama de Classe (UML) no Miro;
 - Criação do método para verificar se existe um apelido.
 #### Etapa 03:
-- Criação da rota de adicionar aluno;
-- Criação da rota de mostrar alunos;
-- Criação da rota de verificar se está ativo.
+- Criação do método de adicionar aluno;
+- Criação do método de mostrar alunos;
+- Criação do método de verificar se está ativo.
 #### Etapa 04:
 - Configuração do ambiente no postman.
 </div>
@@ -117,8 +117,8 @@ Aqui estão todos os membros responsáveis pelo desenvolvimento deste projeto, j
 - Exportação da classe Jogo.
 #### Etapa 03:
 - Criação do arquivo "indexRoutes.js" e de seu conteúdo;
-- Criação da rota de remoção do aluno;
-- Criação da rota de iniciar votação;
+- Criação do método de remoção do aluno;
+- Criação do método de iniciar votação;
 #### Etapa 04:
 - Configuração do ambiente no postman.
 </div>
@@ -139,7 +139,7 @@ Aqui estão todos os membros responsáveis pelo desenvolvimento deste projeto, j
 - Criação da lista do total de grupos.
 #### Etapa 03:
 - Criação do arquivo de "cadastroRoutes.js";
-- Criação da rota de encerrar votação.
+- Criação do método de encerrar votação.
 #### Etapa 04:
 - Configuração do ambiente no postman.
 </div>
@@ -159,7 +159,7 @@ Aqui estão todos os membros responsáveis pelo desenvolvimento deste projeto, j
 - Criação do constructor da classe "Jogo.js";
 - Criação da lista de alunos cadastrados.
 #### Etapa 03:
-- Criação da rota de mostrar jogadores;
+- Criação do método de mostrar jogadores;
 #### Etapa 04:
 - Configuração do ambiente no postman.
 </div>

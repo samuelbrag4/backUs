@@ -113,8 +113,7 @@ class Jogo {
         return resultadoFinal;
     }
 
-    // Rota para remover aluno - Jéssica
-
+    // Método para remover aluno - Jéssica
     removerAluno(nome) {
         // Encontrar o índice do aluno com o nome fornecido
         const alunoIndex = this.alunos.findIndex((a) => a.nome === nome);
@@ -132,7 +131,7 @@ class Jogo {
     }
 
 
-    // Rota para mostrar jogadores - Gabriela
+    // Método para mostrar jogadores - Gabriela
     mostrarJogadores(dados) {
         const tabelaComInstancia = dados.map((d) => {
             const {
@@ -160,7 +159,7 @@ class Jogo {
         console.table(tabelaComInstancia);
     }
 
-    // Rota para iniciar jogo - Samuel
+    // Método para iniciar jogo - Samuel
     iniciarJogo() {
         // Escolhe aleatoriamente um grupo para ser o grupo dos sabotadores do jogo
         const grupoEscolhido = Math.floor(Math.random() * this.grupos) + 1;
@@ -185,9 +184,9 @@ class Jogo {
         this.mostrarJogadores(this.jogadores);
     };
 
-    // Rota para encontrar jogador por senha - Nathalia
+    // Método para encontrar jogador por senha - Nathalia
 
-    // Rota para ver o papel - Samuel
+    // Método para ver o papel - Samuel
     verPapel(senha) {
         // Encontra o jogador correspondente à senha que foi fornecida
         const jogador = this.encontrarJogadorPorSenha(senha);
@@ -203,7 +202,7 @@ class Jogo {
         return jogador.mostrarPapel();
     };
 
-        // Rota para verificar se o jogador está vivo - Sara
+        // Metodo para verificar se o jogador está vivo - Sara
             verificarSeEstaVivo(jogador) {
             // Verifica se a propriedade 'estaVivo' do objeto 'jogador' é falsa
              if (!jogador.estaVivo) {
@@ -214,12 +213,9 @@ class Jogo {
         }
         // Se o jogador está vivo, retorna o objeto 'jogador'
             return jogador;
-        }
-        
-        // Rota para iniciar votação - Jessica
+        } 
             
-        // Método para iniciar a votação
-
+        // Método para iniciar a votação - Jessica
         iniciarVotacao() {
             if (this.votacaoAtiva) {
               throw new Error(
@@ -243,7 +239,7 @@ class Jogo {
         }, 6 * 60 * 1000); // 6 minutos em milissegundos
     }
 
-    // Rota para encerrar votação - Alexandra
+    // Método para encerrar votação - Alexandra
     encerrarVotacao() {
         // Verifica se há uma votação ativa
         if (!this.votacaoAtiva) {
