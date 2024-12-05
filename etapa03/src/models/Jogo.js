@@ -159,6 +159,7 @@ class Jogo {
 
         console.table(tabelaComInstancia);
     }
+
     // Rota para iniciar jogo - Samuel
     iniciarJogo() {
         // Escolhe aleatoriamente um grupo para ser o grupo dos sabotadores do jogo
@@ -205,7 +206,6 @@ class Jogo {
     // Rota para verificar se está ativo - Sara
 
     // Rota para iniciar votação - Jessica
-
     iniciarVotacao() {
         if (this.votacaoAtiva) {
             throw new Error(
